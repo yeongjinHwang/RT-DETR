@@ -37,7 +37,7 @@ processed_image = draw_boxes(image.copy(), final_detections, model.names)
 # 4. 결과 저장 및 비교
 # 결과 저장
 raw_result_path = "./test_data/output/raw_result.png"
-processed_result_path = "./test_data/output/split_result.png"
+processed_result_path = "./test_data/output/processed_result.png"
 cv2.imwrite(f"{raw_result_path}", raw_image)
 cv2.imwrite(f"{processed_result_path}", processed_image)
 
