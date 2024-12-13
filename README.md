@@ -50,12 +50,13 @@ RT-DETR/
 
 
 ## **설치 및 준비, 실행**
+
 ```
 git clone <repository-url>
 cd RT-DETR
 pip install -r requirements.txt
 python inference.py
-```
+
 
 ## **결과 비교**
 
