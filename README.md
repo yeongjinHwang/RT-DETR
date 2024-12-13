@@ -47,7 +47,7 @@ RT-DETR/
 │   └── processed_result.png  # 분할 후 병합된 추론 결과
 ├── requirements.txt          # 종속성 관리 파일
 └── README.md                 # 프로젝트 설명 파일
-
+```
 
 ## **설치 및 준비, 실행**
 
@@ -56,7 +56,7 @@ git clone <repository-url>
 cd RT-DETR
 pip install -r requirements.txt
 python inference.py
-
+```
 
 ## **결과 비교**
 
