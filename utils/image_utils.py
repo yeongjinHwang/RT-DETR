@@ -43,27 +43,25 @@ def merge_image(image, detections, offsets):
 
 def draw_boxes(image, detections, class_names, conf_threshold=0.5):
     """
-    이미지에 바운딩 박스를 그리고 클래스 이름과 신뢰도를 표시합니다.
+    이미지에 바운딩 박스를 그리는 함수
 
     Args:
-        image (np.ndarray): 입력 이미지.
-        detections (list): NMS가 적용된 바운딩 박스 정보 리스트 (dict 구조).
-        class_names (list): 클래스 이름 리스트.
-        conf_threshold (float): 신뢰도 임계값.
+        image (np.ndarray): 입력 이미지
+        detections (Boxes): 모델 추론 결과 바운딩 박스 객체
+        class_names (list): 클래스 이름 리스트
+        conf_threshold (float): 신뢰도 임계값
 
     Returns:
-        np.ndarray: 바운딩 박스가 그려진 이미지.
+        np.ndarray: 바운딩 박스가 그려진 이미지
     """
     for det in detections:
-        if det["conf"][0] >= conf_threshold:  # 신뢰도 확인
-            x1, y1, x2, y2 = map(int, det["xyxy"][0])  # 바운딩 박스 좌표 추출
-            class_id = int(det["cls"][0])  # 클래스 ID 추출
-            class_name = class_names[class_id]  # 클래스 이름 매핑
-            confidence = det["conf"][0]  # 신뢰도 추출
+        # 신뢰도 확인 및 필터링
+        if det.conf.item() >= conf_threshold:  # .item()으로 float 변환
+            x1, y1, x2, y2 = map(int, det.xyxy[0])  # 좌표 변환
+            cls = int(det.cls)  # 클래스 인덱스
+            label = f"{class_names[cls]} {det.conf.item():.2f}"  # .item() 사용
 
-            # 바운딩 박스 그리기
+            # 바운딩 박스 및 라벨 그리기
             cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-            text = f"{class_name} {confidence:.2f}"
-            cv2.putText(image, text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-    
+            cv2.putText(image, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     return image
