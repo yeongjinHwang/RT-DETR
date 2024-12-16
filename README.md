@@ -66,7 +66,7 @@ python inference.py {test_video.mp4} # video
 ### **1. 원본 이미지 결과**
 원본 이미지를 모델에 직접 입력하여 추론한 결과입니다. 원본 결과에서는 모델이 감지한 객체들이 그대로 표시됩니다.
 
-![Raw Result](test_data/output/raw_result.png)
+![Raw Result](test_data/output/test_raw.png)
 _원본 이미지 추론 결과_
 
 ---
@@ -74,7 +74,7 @@ _원본 이미지 추론 결과_
 ### **2. 분할 및 병합된 결과**
 입력 이미지를 4분할한 후, 각 분할에 대해 모델 추론을 수행하고 병합한 결과입니다. 분할 및 병합 과정의 성능을 평가할 수 있습니다.
 
-![Processed Result](test_data/output/processed_result.png)
+![Processed Result](test_data/output/test_processed.png)
 _분할 후 병합된 추론 결과_
 
 ---
