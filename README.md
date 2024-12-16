@@ -55,9 +55,8 @@ RT-DETR/
 git clone <repository-url>
 cd RT-DETR
 pip install -r requirements.txt
-python inference.py {test.png} #image
-python inference.py {test_video.mp4} #video
-```
+python inference.py
+
 
 ## **결과 비교**
 
