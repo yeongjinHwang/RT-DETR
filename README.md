@@ -34,19 +34,21 @@ RT-DETR 기반 객체 감지 프로젝트입니다. 이 프로젝트는 이미�
 
 ```plaintext
 RT-DETR/
+├── test_data/                
+│   ├── output/               # 결과 저장 폴더
+│   │   ├── processed_result.png  # 분할 후 병합된 추론 결과
+│   │   ├── raw_result.png        # 원본 이미지 추론 결과
+│   │   └── MOT16-04-raw.mp4      # 테스트 비디오
+│   └── test.png              # 테스트 이미지
 ├── utils/
 │   ├── __init__.py           # 유틸리티 패키지 초기화
 │   ├── image_utils.py        # 이미지 분할 및 병합 관련 함수
-│   ├── drawing.py            # 바운딩 박스 그리기 함수
 │   └── nms_utils.py          # NMS 관련 함수
+├── .gitignore                # Git 무시 파일
 ├── inference.py              # 메인 추론 스크립트
-├── test_data/                # 테스트 이미지 저장 폴더
-│   └── test.png
-├── output/                   # 결과 저장 폴더
-│   ├── raw_result.png        # 원본 이미지 추론 결과
-│   └── processed_result.png  # 분할 후 병합된 추론 결과
+├── README.md                 # 프로젝트 설명 파일
 ├── requirements.txt          # 종속성 관리 파일
-└── README.md                 # 프로젝트 설명 파일
+└── rtdetr-l.pt               # RT-DETR 모델 가중치 파일
 ```
 
 ## **설치 및 준비, 실행**
@@ -55,8 +57,9 @@ RT-DETR/
 git clone <repository-url>
 cd RT-DETR
 pip install -r requirements.txt
-python inference.py
-
+python inference.py {test_image.png} # image
+python inference.py {test_video.mp4} # video
+```
 
 ## **결과 비교**
 
