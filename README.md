@@ -47,16 +47,17 @@ RT-DETR/
 │   └── processed_result.png  # 분할 후 병합된 추론 결과
 ├── requirements.txt          # 종속성 관리 파일
 └── README.md                 # 프로젝트 설명 파일
-
+```
 
 ## **설치 및 준비, 실행**
-
+이미지/비디오는 ./test_data 경로에 있어야됩니다.
 ```
 git clone <repository-url>
 cd RT-DETR
 pip install -r requirements.txt
-python inference.py
-
+python inference.py {test.png} #image
+python inference.py {test_video.mp4} #video
+```
 
 ## **결과 비교**
 
@@ -84,7 +85,7 @@ _분할 후 병합된 추론 결과_
 
 ---
 
-**Note**: 결과 이미지는 `test_data/output/` 디렉토리에 저장됩니다.
+**Note**: 결과 이미지/비디오는 `test_data/output/` 디렉토리에 저장됩니다.
 
 ## **라이센스**
 
